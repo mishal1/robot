@@ -4,7 +4,7 @@ const controller = require('./controller');
 
 const fileLocation = process.argv[2] || 'input.txt';
 
-console.log(`Reading input from ${fileLocation}.`);
+process.stdout.write(`Reading input from ${fileLocation}.`);
 
 const fileContents = fs.readFileSync(fileLocation, 'utf8');
 
