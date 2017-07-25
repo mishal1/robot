@@ -1,9 +1,9 @@
 const _ = require('lodash');
 
-const seperate = (string, seperator) => string.split(seperator);
+const separate = (string, separator) => string.split(separator);
 
 const getBounds = (string) => {
-  const [maxX, maxY] = _.map(seperate(string, ''), Number);
+  const [maxX, maxY] = _.map(separate(string, ''), Number);
   return { maxX, maxY };
 };
 
@@ -16,12 +16,12 @@ const instruction = (xCoordinate, yCoordinate, orientation, commands) => ({
   commands,
 });
 
-const seperateByCharacters = instructions => seperate(instructions, '');
+const separateByCharacters = instructions => separate(instructions, '');
 
 const create = (couple) => {
-  const seperated = couple.map(seperateByCharacters);
-  const [xCoordinate, yCoordinate, orientation] = seperated[0];
-  return instruction(xCoordinate, yCoordinate, orientation, seperated[1]);
+  const separated = couple.map(separateByCharacters);
+  const [xCoordinate, yCoordinate, orientation] = separated[0];
+  return instruction(xCoordinate, yCoordinate, orientation, separated[1]);
 };
 
 const formInstructions = instructions => instructions.map(create);
@@ -34,13 +34,13 @@ const getInstructions = _.flow([
   formInstructions,
 ]);
 
-const removeSpaces = instructions => seperate(instructions, ' ').join('');
+const removeSpaces = instructions => separate(instructions, ' ').join('');
 
-const seperateByIndent = instructions => seperate(instructions, '\n');
+const separateByIndent = instructions => separate(instructions, '\n');
 
 const formatData = _.flow([
   removeSpaces,
-  seperateByIndent,
+  separateByIndent,
   _.compact,
 ]);
 
