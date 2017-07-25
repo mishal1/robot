@@ -41,6 +41,7 @@ const seperateByIndent = instructions => seperate(instructions, '\n');
 const formatData = _.flow([
   removeSpaces,
   seperateByIndent,
+  _.compact,
 ]);
 
 const formatInputData = (input) => {
