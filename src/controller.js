@@ -4,8 +4,8 @@ const robot = require('./robot');
 const _ = require('lodash');
 
 const formatResults = (output) => {
-  const lost = output.lost ? 'LOST' : '';
-  return `${output.xCoordinate}${output.yCoordinate}${output.orientation}${lost}`;
+  const lost = output.lost ? ' LOST' : '';
+  return `${output.xCoordinate} ${output.yCoordinate} ${output.orientation}${lost}`;
 };
 
 const endResults = results => _.join(_.map(results, formatResults), '\n');
